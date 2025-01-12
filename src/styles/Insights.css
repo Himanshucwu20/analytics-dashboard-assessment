@@ -1,0 +1,163 @@
+/* src/styles/Insights.css */
+
+/* General Insights Page Styling */
+.insights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #e1f5fe, #ffffff); /* Light Blue to White Gradient */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Card Container Styling */
+  .insights > div {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  }
+  
+  .insights > div:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background: #f1f9ff; /* Soft hover effect with light blue shade */
+  }
+  
+  /* Card Titles */
+  .insights > div h3 {
+    font-size: 24px;
+    color: #0d47a1; /* Deep Blue */
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .insights > div:hover h3 {
+    color: #1976d2; /* Slightly lighter blue for hover effect */
+  }
+  
+  /* Card Content Styling */
+  .insights > div > div {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .insights > div:hover > div {
+    color: #0d47a1; /* Deep Blue for hover state */
+  }
+  
+  /* EV Distribution Map Card */
+  .insights .ev-distribution-map {
+    background: #b3e5fc; /* Light blue background */
+    border-left: 5px solid #64b5f6; /* Slightly darker blue border */
+  }
+  
+  .insights .ev-distribution-map h3 {
+    color: #1976d2; /* Lighter blue for the title */
+  }
+  
+  .insights .ev-distribution-map:hover {
+    background: #81d4fa;
+  }
+  
+  /* Top Counties Postal Codes Card */
+  .insights .top-counties-postal-codes {
+    background: #bbdefb; /* Light blue background */
+    border-left: 5px solid #2196f3; /* Slightly darker blue border */
+  }
+  
+  .insights .top-counties-postal-codes h3 {
+    color: #1e88e5; /* Medium blue for the title */
+  }
+  
+  .insights .top-counties-postal-codes:hover {
+    background: #64b5f6;
+  }
+  
+  /* Electric Range Distribution Card */
+  .insights .electric-range-distribution {
+    background: #c6fffd; /* Light cyan background */
+    border-left: 5px solid #03a9f4; /* Bright blue border */
+  }
+  
+  .insights .electric-range-distribution h3 {
+    color: #0288d1; /* Deep blue for title */
+  }
+  
+  .insights .electric-range-distribution:hover {
+    background: #80deea;
+  }
+  
+  /* Avg MSRP By Model Year Card */
+  .insights .avg-msrp-by-model-year {
+    background: #b3e5fc; /* Light blue background */
+    border-left: 5px solid #0288d1; /* Deep blue border */
+  }
+  
+  .insights .avg-msrp-by-model-year h3 {
+    color: #0277bd; /* Medium blue for title */
+  }
+  
+  .insights .avg-msrp-by-model-year:hover {
+    background: #81d4fa;
+  }
+  
+  /* MSRP vs Range Card */
+  .insights .msrp-vs-range {
+    background: #bbdefb; /* Light blue background */
+    border-left: 5px solid #1976d2; /* Slightly darker blue border */
+  }
+  
+  .insights .msrp-vs-range h3 {
+    color: #1565c0; /* Medium blue for title */
+  }
+  
+  .insights .msrp-vs-range:hover {
+    background: #64b5f6;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .insights {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, auto);
+    }
+  }
+  
+  /* Subtle Animation for Data Loading */
+  .insights > div {
+    opacity: 0;
+    animation: fadeIn 0.6s forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Mobile Styling */
+  @media (max-width: 480px) {
+    .insights {
+      padding: 10px;
+      gap: 15px;
+    }
+    .insights > div {
+      padding: 20px;
+    }
+    .insights > div h3 {
+      font-size: 20px;
+    }
+  }
+  

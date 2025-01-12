@@ -1,0 +1,29 @@
+/* src/styles/EVDistributionMap.css */
+.map-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 30px;
+  }
+  
+  .map-container:hover {
+    background-color: #f1f9ff;
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .map-container h2 {
+    font-size: 24px;
+    color: #0d47a1;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .map-container .leaflet-container {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+  }
+  

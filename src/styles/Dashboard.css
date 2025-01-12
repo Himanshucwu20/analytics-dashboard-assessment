@@ -1,0 +1,148 @@
+/* src/styles/Dashboard.css */
+
+/* General Dashboard Styling */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #e1f5fe, #ffffff); /* Light Blue to White Gradient */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Card Container Styling */
+.dashboard > div {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.dashboard > div:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background: #f1f9ff; /* Soft hover effect with light blue shade */
+}
+
+/* Card Titles */
+.dashboard > div h3 {
+  font-size: 24px;
+  color: #0d47a1; /* Deep Blue */
+  font-weight: 600;
+  margin-bottom: 20px;
+  transition: color 0.3s ease-in-out;
+}
+
+.dashboard > div:hover h3 {
+  color: #1976d2; /* Slightly lighter blue for hover effect */
+}
+
+/* Card Content Styling */
+.dashboard > div > div {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  transition: color 0.3s ease-in-out;
+}
+
+.dashboard > div:hover > div {
+  color: #0d47a1; /* Deep Blue for hover state */
+}
+
+/* General Overview Card (Top-left card) */
+.dashboard .general-overview {
+  background: #b3e5fc; /* Light blue background */
+  border-left: 5px solid #64b5f6; /* Slightly darker blue border */
+}
+
+.dashboard .general-overview h3 {
+  color: #1976d2; /* Lighter blue for the title */
+}
+
+.dashboard .general-overview:hover {
+  background: #81d4fa;
+}
+
+/* EV Type Distribution Card (Top-right card) */
+.dashboard .ev-type-distribution {
+  background: #bbdefb; /* Light blue background */
+  border-left: 5px solid #2196f3; /* Slightly darker blue border */
+}
+
+.dashboard .ev-type-distribution h3 {
+  color: #1e88e5; /* Medium blue for the title */
+}
+
+.dashboard .ev-type-distribution:hover {
+  background: #64b5f6;
+}
+
+/* Model Year Distribution Card (Bottom-left card) */
+.dashboard .model-year-distribution {
+  background: #c6fffd; /* Light cyan background */
+  border-left: 5px solid #03a9f4; /* Bright blue border */
+}
+
+.dashboard .model-year-distribution h3 {
+  color: #0288d1; /* Deep blue for title */
+}
+
+.dashboard .model-year-distribution:hover {
+  background: #80deea;
+}
+
+/* Top Makes & Models Card (Bottom-right card) */
+.dashboard .top-makes-models {
+  background: #b3e5fc; /* Light blue background */
+  border-left: 5px solid #0288d1; /* Deep blue border */
+}
+
+.dashboard .top-makes-models h3 {
+  color: #0277bd; /* Medium blue for title */
+}
+
+.dashboard .top-makes-models:hover {
+  background: #81d4fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+}
+
+/* Subtle Animation for Data Loading */
+.dashboard > div {
+  opacity: 0;
+  animation: fadeIn 0.6s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Mobile Styling */
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 10px;
+    gap: 15px;
+  }
+  .dashboard > div {
+    padding: 20px;
+  }
+  .dashboard > div h3 {
+    font-size: 20px;
+  }
+}

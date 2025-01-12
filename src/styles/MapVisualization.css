@@ -1,0 +1,79 @@
+/* MapVisualization Container Styling */
+.map-container {
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  /* Map Title Styling */
+  .map-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  /* Marker Popups */
+  .leaflet-popup-content {
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+  }
+  
+  .leaflet-popup-content h5 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  
+  .leaflet-popup-content p {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  /* Map Container Responsiveness */
+  @media (max-width: 768px) {
+    .map-container {
+      height: 400px;
+    }
+  }
+  
+  /* Map Marker Customization */
+  .leaflet-marker-icon {
+    background-color: #2e86c1; /* Light blue marker */
+    border-radius: 50%;
+    border: 2px solid #1f6f8b;
+  }
+  
+  .leaflet-popup-tip-container {
+    display: none;
+  }
+  
+  /* Additional Styling for Popups */
+  .leaflet-popup-content-wrapper {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .leaflet-popup-tip {
+    background-color: #f4f4f4;
+  }
+  
+  /* Shadow Effect on Markers */
+  .leaflet-marker-icon {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Customizing the Popup Position */
+  .leaflet-popup-content-wrapper {
+    margin-top: -5px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  

@@ -1,0 +1,67 @@
+/* src/styles/MSRPvsRange.css */
+
+/* General Card Styling */
+.msrp-vs-range-container {
+    background: #ffffff; /* White background for the chart container */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Hover effect for the chart container */
+  .msrp-vs-range-container:hover {
+    background: #f1f9ff; /* Soft light blue for hover */
+    transform: translateY(-8px); /* Lift effect */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover */
+  }
+  
+  /* Title for the chart */
+  .msrp-vs-range-container h2 {
+    font-size: 24px;
+    color: #0d47a1; /* Deep blue */
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Hover effect for the title */
+  .msrp-vs-range-container:hover h2 {
+    color: #1976d2; /* Lighter blue */
+  }
+  
+  /* Loading and error messages */
+  .msrp-vs-range-container p {
+    font-size: 18px;
+    color: #333; /* Default dark text */
+    line-height: 1.6;
+  }
+  
+  /* Chart Container */
+  .msrp-vs-range-container canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 10px; /* Rounded corners for the chart */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .msrp-vs-range-container {
+      padding: 15px;
+    }
+    .msrp-vs-range-container h2 {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .msrp-vs-range-container {
+      padding: 10px;
+    }
+    .msrp-vs-range-container h2 {
+      font-size: 18px;
+    }
+  }
+  
