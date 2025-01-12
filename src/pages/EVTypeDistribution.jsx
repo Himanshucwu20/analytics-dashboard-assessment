@@ -2,15 +2,24 @@ import React from 'react';
 import ChartCard from '../components/ChartCard';
 import { Bar } from 'react-chartjs-2';
 
-
 function EVTypeDistribution({ data }) {
   const evTypeCount = data.reduce((acc, row) => {
-    acc[row['Electric Vehicle Type']] = (acc[row['Electric Vehicle Type']] || 0) + 1;
+    const vehicleType = row['Electric Vehicle Type'];
+    acc[vehicleType] = (acc[vehicleType] || 0) + 1;
     return acc;
   }, {});
 
+  const labels = Object.keys(evTypeCount).map((type) => {
+    if (type === 'Battery Electric Vehicle (BEV)') {
+      return 'BEV';
+    } else if (type === 'Plug-in Hybrid Electric Vehicle (PHEV)') {
+      return 'PHEV';
+    }
+    return type; 
+  });
+
   const chartData = {
-    labels: Object.keys(evTypeCount),
+    labels: labels, // Use the trimmed labels
     datasets: [
       {
         label: 'Number of EVs by Type',
