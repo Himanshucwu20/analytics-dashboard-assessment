@@ -2,13 +2,12 @@ import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import postalCodeCentroids from '../utils/postalCodeCentroids'; // Ensure path is correct
-//import '../styles/MapVisualization.css'; // Make sure the CSS is applied
+import postalCodeCentroids from '../utils/postalCodeCentroids'; 
 
 function MapVisualization({ title, data }) {
   const defaultCenter = { lat: 47.6062, lon: -122.3321  }; // Default to San Francisco
 
-  // Log the data to ensure it's passed correctly
+  // data to ensure it's passed correctly
   console.log('Data in MapVisualization:', data);
 
   return (
@@ -18,21 +17,21 @@ function MapVisualization({ title, data }) {
         <MapContainer
           center={defaultCenter} // Set default center
           zoom={10}
-          style={{ width: '100%', height: '400px' }} // Ensure the height is not 0
+          style={{ width: '100%', height: '400px' }} 
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {data?.map((item, index) => {
-            const postalCode = item['Postal Code']; // Ensure you use the correct key for postal code
-            const centroid = postalCodeCentroids[postalCode]; // Get lat/lon from the postalCodeCentroids
+            const postalCode = item['Postal Code']; 
+            const centroid = postalCodeCentroids[postalCode]; 
 
-            // Log centroid data for debugging
+            // centroid data for debugging
             console.log(`Postal Code: ${postalCode}, Centroid:`, centroid);
 
             if (centroid) {
               return (
                 <Marker
                   key={index}
-                  position={{ lat: centroid.lat, lng: centroid.lon }} // Correct position data
+                  position={{ lat: centroid.lat, lng: centroid.lon }} 
                   icon={new L.Icon({
                     iconUrl: 'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/images/marker-icon.png',
                     iconSize: [20, 25],

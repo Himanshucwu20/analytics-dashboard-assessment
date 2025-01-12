@@ -1,4 +1,3 @@
-// components/MSRPvsRange.jsx
 import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement,BarElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
@@ -33,7 +32,7 @@ const MSRPvsRange = () => {
         const csvText = await response.text();
         const parsedData = parseCSV(csvText);
 
-        console.log('Parsed Data:', parsedData); // Debug the data structure
+        console.log('Parsed Data:', parsedData); 
 
         // Look for the exact column name for the year
         const labels = parsedData.map((item) => {

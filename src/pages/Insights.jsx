@@ -3,7 +3,7 @@ import EVDistributionMap from './EVDistributionMap';
 import TopCountiesPostalCodes from './TopCountiesPostalCodes';
 import ElectricRangeDistribution from './ElectricRangeDistribution';
 import AvgMSRPByModelYear from './AvgMSRPByModelYear';
-import MSRPvsRange from './MSRPvsRange';
+
 import '../styles/Insights.css';
 
 function Insights() {

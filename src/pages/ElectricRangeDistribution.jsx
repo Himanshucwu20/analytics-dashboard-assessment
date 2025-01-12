@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { parseCSV } from '../utils/parseCSV'; // Import parseCSV utility
+import { parseCSV } from '../utils/parseCSV'; 
 
 const ElectricRangeDistribution = () => {
   const [evData, setEvData] = useState([]);
@@ -18,16 +18,16 @@ const ElectricRangeDistribution = () => {
         const csvText = await response.text();
         const parsedData = await parseCSV(csvText);
 
-        setEvData(parsedData); // Set the data to state
+        setEvData(parsedData); //  the data to state
       } catch (error) {
         console.error('Error fetching CSV:', error);
-        setError(error.message); // Set error message if something goes wrong
+        setError(error.message); //  error message if something goes wrong
       } finally {
-        setLoading(false); // Stop loading state
+        setLoading(false); //  loading state
       }
     };
 
-    fetchData(); // Fetch data on component mount
+    fetchData(); //  data on component mount
   }, []);
 
   if (loading) {
@@ -38,13 +38,13 @@ const ElectricRangeDistribution = () => {
     return <div>Error: {error}</div>;
   }
 
-  // Ensure data is available and mapped before rendering
+  // Ensuring data is available and mapped before rendering
   if (!evData || evData.length === 0) {
     return <div>No data available.</div>;
   }
 
   // Map through the data and extract electric range info
-  const electricRangeData = evData.map((ev) => ev['Electric Range']); // Make sure the column name matches
+  const electricRangeData = evData.map((ev) => ev['Electric Range']); 
   const minRange = Math.min(...electricRangeData);
   const maxRange = Math.max(...electricRangeData);
 
@@ -52,7 +52,6 @@ const ElectricRangeDistribution = () => {
     <div>
       <h3>Electric Range Distribution</h3>
       <p>Range Min: {minRange} miles, Range Max: {maxRange} miles</p>
-      {/* You can display a chart or other content based on the data here */}
     </div>
   );
 };

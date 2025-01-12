@@ -1,4 +1,3 @@
-// src/pages/Dashboard.jsx
 import React, { useState, useEffect } from 'react';
 import GeneralOverview from './GeneralOverview';
 import EVTypeDistribution from './EVTypeDistribution';

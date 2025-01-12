@@ -9,7 +9,7 @@ function EVDistributionMap() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/dataset.csv'); // Adjust path if necessary
+        const response = await fetch('/dataset.csv'); 
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
@@ -17,7 +17,7 @@ function EVDistributionMap() {
         const csvText = await response.text();
         const parsedData = parseCSV(csvText);
 
-        // Log the parsed data to verify postal codes exist
+        //  the parsed data to verify postal codes exist
         console.log('Parsed Data:', parsedData);
 
         // Filter data based on postal code (if available)

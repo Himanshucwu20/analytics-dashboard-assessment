@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/ChartCard.css';
 
 function ChartCard({ title, children }) {
   return (

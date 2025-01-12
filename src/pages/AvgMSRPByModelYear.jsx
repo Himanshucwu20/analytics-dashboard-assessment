@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { parseCSV } from '../utils/parseCSV'; // Import parseCSV utility
+import { parseCSV } from '../utils/parseCSV'; 
 
 const AvgMSRPByModelYear = () => {
   const [evData, setEvData] = useState([]);
@@ -9,7 +9,7 @@ const AvgMSRPByModelYear = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch the CSV file from the public directory
+        //the CSV file from the public directory
         const response = await fetch('/dataset.csv');
         if (!response.ok) {
           throw new Error('Failed to fetch CSV data');
@@ -18,16 +18,16 @@ const AvgMSRPByModelYear = () => {
         const csvText = await response.text();
         const parsedData = await parseCSV(csvText);
 
-        setEvData(parsedData); // Set the data to state
+        setEvData(parsedData); //  the data to state
       } catch (error) {
         console.error('Error fetching CSV:', error);
-        setError(error.message); // Set error message if something goes wrong
+        setError(error.message); //  error message if something goes wrong
       } finally {
-        setLoading(false); // Stop loading state
+        setLoading(false); //loading state
       }
     };
 
-    fetchData(); // Fetch data on component mount
+    fetchData(); // data on component mount
   }, []);
 
   if (loading) {
@@ -38,15 +38,15 @@ const AvgMSRPByModelYear = () => {
     return <div>Error: {error}</div>;
   }
 
-  // Ensure data is available and mapped before rendering
+  // Ensuring data is available and mapped before rendering
   if (!evData || evData.length === 0) {
     return <div>No data available.</div>;
   }
 
   // Group data by Model Year
   const msrpByModelYear = evData.reduce((acc, ev) => {
-    const modelYear = ev['Model Year']; // Ensure this matches the CSV column name
-    const msrp = parseFloat(ev['Base MSRP']); // Ensure this matches the CSV column name
+    const modelYear = ev['Model Year']; 
+    const msrp = parseFloat(ev['Base MSRP']); 
 
     if (modelYear && !isNaN(msrp)) {
       if (!acc[modelYear]) {

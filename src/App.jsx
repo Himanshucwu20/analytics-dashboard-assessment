@@ -1,13 +1,9 @@
 import React from 'react';
-import Sidebar from './components/Sidebar';  // Import Sidebar
-import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';  // Assuming Dashboard is a page component
-import Insights from './pages/Insights';  // Assuming Insights is a page component
-// import Geographic from './pages/Geographic';  // Geographic insights page
-// import Range from './pages/Range';  // Range and cost analysis page
+import Sidebar from './components/Sidebar'; 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';  
+import Insights from './pages/Insights';  
 import './styles/App.css';
-import TopCountiesPostalCodes from './pages/TopCountiesPostalCodes';
-import ElectricRangeDistribution from './pages/ElectricRangeDistribution';
 import MSRPvsRange from './pages/MSRPvsRange';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';

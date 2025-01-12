@@ -1,7 +1,7 @@
 import React from 'react';
 import ChartCard from '../components/ChartCard';
 import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJS } from 'chart.js';
+
 
 function EVTypeDistribution({ data }) {
   const evTypeCount = data.reduce((acc, row) => {

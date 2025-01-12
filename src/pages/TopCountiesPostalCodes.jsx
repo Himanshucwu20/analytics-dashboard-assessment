@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { parseCSV } from '../utils/parseCSV'; // Import the parseCSV function
+import { parseCSV } from '../utils/parseCSV'; 
 
 const TopCountiesPostalCodes = () => {
   const [evData, setEvData] = useState([]);
@@ -15,24 +15,24 @@ const TopCountiesPostalCodes = () => {
           throw new Error('Failed to fetch CSV data');
         }
         
-        // Read the CSV file as text
+        // the CSV file as text
         const csvText = await response.text();
         console.log('CSV Text:', csvText); // Log the raw CSV for debugging
 
-        // Parse the CSV data using the parseCSV function
+        //  the CSV data using the parseCSV function
         const parsedData = await parseCSV(csvText);
         console.log('Parsed Data:', parsedData); // Log parsed data
 
-        setEvData(parsedData); // Set the parsed data to state
+        setEvData(parsedData); // the parsed data to state
       } catch (error) {
         console.error('Error fetching CSV:', error);
-        setError(error.message); // Set error message if something goes wrong
+        setError(error.message); //  error message if something goes wrong
       } finally {
         setLoading(false); // Stop loading
       }
     };
 
-    fetchData(); // Call fetchData once component mounts
+    fetchData(); //  fetchData once component mounts
   }, []); // Empty dependency array ensures it runs only once
 
   if (loading) {
