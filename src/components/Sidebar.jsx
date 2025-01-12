@@ -14,9 +14,9 @@ function Sidebar() {
   return (
     <div className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
       {/* Sidebar Toggle Button */}
-      <button className="toggle-btn" onClick={toggleSidebar}>
+      {/* <button className="toggle-btn" onClick={toggleSidebar}>
         {isSidebarOpen ? 'Close Sidebar' : 'Open Sidebar'}
-      </button>
+      </button> */}
 
       {/* Sidebar Links */}
       <ul className="sidebar-links">
