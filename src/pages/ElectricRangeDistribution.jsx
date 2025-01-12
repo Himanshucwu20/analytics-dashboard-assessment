@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { parseCSV } from '../utils/parseCSV'; 
+import { parseCSV } from '../utils/parseCSV';
+import '../styles/GeneralOverview.css'; // Reuse the same CSS file as General Overview
+import ChartCard from '../components/ChartCard';
 
 const ElectricRangeDistribution = () => {
   const [evData, setEvData] = useState([]);
@@ -9,7 +11,6 @@ const ElectricRangeDistribution = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch the CSV file from the public directory
         const response = await fetch('/dataset.csv');
         if (!response.ok) {
           throw new Error('Failed to fetch CSV data');
@@ -18,16 +19,16 @@ const ElectricRangeDistribution = () => {
         const csvText = await response.text();
         const parsedData = await parseCSV(csvText);
 
-        setEvData(parsedData); //  the data to state
+        setEvData(parsedData);
       } catch (error) {
         console.error('Error fetching CSV:', error);
-        setError(error.message); //  error message if something goes wrong
+        setError(error.message);
       } finally {
-        setLoading(false); //  loading state
+        setLoading(false);
       }
     };
 
-    fetchData(); //  data on component mount
+    fetchData();
   }, []);
 
   if (loading) {
@@ -38,21 +39,33 @@ const ElectricRangeDistribution = () => {
     return <div>Error: {error}</div>;
   }
 
-  // Ensuring data is available and mapped before rendering
   if (!evData || evData.length === 0) {
     return <div>No data available.</div>;
   }
 
-  // Map through the data and extract electric range info
-  const electricRangeData = evData.map((ev) => ev['Electric Range']); 
+  const electricRangeData = evData.map((ev) => ev['Electric Range']);
   const minRange = Math.min(...electricRangeData);
   const maxRange = Math.max(...electricRangeData);
 
   return (
-    <div>
-      <h3>Electric Range Distribution</h3>
-      <p>Range Min: {minRange} miles, Range Max: {maxRange} miles</p>
+    <ChartCard>
+    <div className="general-overview-container">
+      <h3 className="general-overview-title">Electric Range Distribution</h3>
+      <div className="general-overview-content">
+        <div className="field-box">
+          <span className="field-label">Starting from : </span> 
+          <span className="field-value">{minRange}  miles</span>
+        </div>
+        <div className="field-box">
+          <span className="field-label">Goes up to : </span> 
+          <span className="field-value">{maxRange}  miles</span>
+        </div>
+      </div>
+      <div className="car-animation-container">
+        <img src="/assets/car.png" alt="Car Animation" className="car-animation" />
+      </div>
     </div>
+    </ChartCard>
   );
 };
 

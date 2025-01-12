@@ -1,0 +1,79 @@
+/* General Overview Styles */
+.chart-card {
+    background-color: #f4f4f9;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .chart-card h1,
+  .chart-card h2,
+  .chart-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .chart-card div {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 12px;
+    margin-right: 20px;
+    margin-left: 10px;
+    position: relative;
+  }
+  
+  /* Car Animation */
+  .car-animation {
+    position: absolute;
+    bottom: 0;
+    top: 5px;
+    left: 50px;
+    right: 200px;
+    width: 100px;
+    height: 50px;
+    background-image: url('/public/assets/car.png');
+    background-size: 50px;
+    background-repeat: no-repeat;
+    animation: driveCar 10s linear infinite;
+  }
+  
+  /* Moving car animation */
+  @keyframes driveCar {
+    0% {
+      transform: translateX(-10%);
+    }
+    50% {
+      transform: translateX(300%);
+    }
+    100% {
+      transform: translateX(-10%);
+    }
+  }
+  
+  /* Highlight total EVs and unique EV types */
+  .field-box {
+    margin: 20px 0;
+    padding: 15px;
+    border: 2px dashed #6c757d;
+    border-radius: 10px;
+    background-color: #e9ecef;
+    transition: transform 0.3s, background-color 0.3s;
+    display: inline-block;
+  }
+  
+  .field-box:hover {
+    transform: scale(1.05);
+    background-color: #dfe4ea;
+  }
+  
+  .field-box span {
+    color: #007bff;
+    font-size: 1.5rem;
+  }
+  

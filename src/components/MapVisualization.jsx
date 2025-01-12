@@ -41,7 +41,8 @@ function MapVisualization({ title, data }) {
                   <Popup>
                     <div>
                       <h5>City: {item['City']}</h5>
-                      <p>No of EVs: {item['Electric Vehicle Type'].length}</p>
+                      <h5>Postal Code : {item['Postal Code']}</h5>
+                      <h5>No of EVs: {item['Electric Vehicle Type'].length}</h5>
                     </div>
                   </Popup>
                 </Marker>

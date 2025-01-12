@@ -1,0 +1,81 @@
+/* AvgMSRPByModelYear.css */
+.container {
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .container h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 1rem;
+  }
+  
+  .table th, .table td {
+    text-align: left;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: #0277bd;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .table tr:hover {
+    background-color: #ddd;
+  }
+  
+  .model-year {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .avg-msrp {
+    color: #0277bd;
+    font-weight: bold;
+  }
+
+  .table-container {
+    max-height: 300px; /* Adjust the height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ddd; /* Optional: Add a border for the scrolling area */
+    padding: 10px;
+  }
+  
+  .table-container::-webkit-scrollbar {
+    width: 8px; /* Customize the scrollbar width */
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background-color: #0277bd; /* Scrollbar thumb color */
+    border-radius: 4px;
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background-color: #f9f9f9; /* Scrollbar track color */
+  }
+  

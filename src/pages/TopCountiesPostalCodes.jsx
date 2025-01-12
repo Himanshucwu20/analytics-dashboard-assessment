@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { parseCSV } from '../utils/parseCSV'; 
+import '../styles/TopCountiesPostalCodes.css'; // Import the CSS file
 
 const TopCountiesPostalCodes = () => {
   const [evData, setEvData] = useState([]);
@@ -9,31 +10,28 @@ const TopCountiesPostalCodes = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch the CSV file from public/ directory
         const response = await fetch('/dataset.csv');
         if (!response.ok) {
           throw new Error('Failed to fetch CSV data');
         }
-        
-        // the CSV file as text
+
         const csvText = await response.text();
-        console.log('CSV Text:', csvText); // Log the raw CSV for debugging
+        console.log('CSV Text:', csvText);
 
-        //  the CSV data using the parseCSV function
         const parsedData = await parseCSV(csvText);
-        console.log('Parsed Data:', parsedData); // Log parsed data
+        console.log('Parsed Data:', parsedData);
 
-        setEvData(parsedData); // the parsed data to state
+        setEvData(parsedData);
       } catch (error) {
         console.error('Error fetching CSV:', error);
-        setError(error.message); //  error message if something goes wrong
+        setError(error.message);
       } finally {
-        setLoading(false); // Stop loading
+        setLoading(false);
       }
     };
 
-    fetchData(); //  fetchData once component mounts
-  }, []); // Empty dependency array ensures it runs only once
+    fetchData();
+  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -43,29 +41,41 @@ const TopCountiesPostalCodes = () => {
     return <div>Error: {error}</div>;
   }
 
-  // Process and display the top counties and postal codes
   const topCounties = evData.reduce((acc, item) => {
     const county = item.County;
     if (county) {
-      acc[county] = (acc[county] || 0) + 1; // Count the number of EVs per county
+      acc[county] = (acc[county] || 0) + 1;
     }
     return acc;
   }, {});
 
   const sortedCounties = Object.entries(topCounties)
-    .sort((a, b) => b[1] - a[1]) // Sort by the number of EVs (descending)
-    .slice(0, 10); // Get the top 10 counties
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10);
 
   return (
-    <div>
+    <div className="container">
       <h3>Top 10 Counties with EVs</h3>
-      <ul>
-        {sortedCounties.map(([county, count]) => (
-          <li key={county}>
-            {county}: {count} EVs
-          </li>
-        ))}
-      </ul>
+      <div className="table-container">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>County</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sortedCounties.map(([county, count], index) => (
+              <tr key={county}>
+                <td className="rank">{index + 1}</td>
+                <td className="county">{county}</td>
+                <td className="count">{count} EVs</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

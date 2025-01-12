@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { parseCSV } from '../utils/parseCSV'; 
+import { parseCSV } from '../utils/parseCSV';
+import '../styles/AvgMSRPByModelYear.css'; // Import the CSS file
 
 const AvgMSRPByModelYear = () => {
   const [evData, setEvData] = useState([]);
@@ -9,7 +10,6 @@ const AvgMSRPByModelYear = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        //the CSV file from the public directory
         const response = await fetch('/dataset.csv');
         if (!response.ok) {
           throw new Error('Failed to fetch CSV data');
@@ -18,16 +18,16 @@ const AvgMSRPByModelYear = () => {
         const csvText = await response.text();
         const parsedData = await parseCSV(csvText);
 
-        setEvData(parsedData); //  the data to state
+        setEvData(parsedData);
       } catch (error) {
         console.error('Error fetching CSV:', error);
-        setError(error.message); //  error message if something goes wrong
+        setError(error.message);
       } finally {
-        setLoading(false); //loading state
+        setLoading(false);
       }
     };
 
-    fetchData(); // data on component mount
+    fetchData();
   }, []);
 
   if (loading) {
@@ -38,15 +38,13 @@ const AvgMSRPByModelYear = () => {
     return <div>Error: {error}</div>;
   }
 
-  // Ensuring data is available and mapped before rendering
   if (!evData || evData.length === 0) {
     return <div>No data available.</div>;
   }
 
-  // Group data by Model Year
   const msrpByModelYear = evData.reduce((acc, ev) => {
-    const modelYear = ev['Model Year']; 
-    const msrp = parseFloat(ev['Base MSRP']); 
+    const modelYear = ev['Model Year'];
+    const msrp = parseFloat(ev['Base MSRP']);
 
     if (modelYear && !isNaN(msrp)) {
       if (!acc[modelYear]) {
@@ -58,7 +56,6 @@ const AvgMSRPByModelYear = () => {
     return acc;
   }, {});
 
-  // Calculate the average MSRP for each model year
   const avgMSRPByModelYear = Object.keys(msrpByModelYear).map((modelYear) => {
     const { totalMSRP, count } = msrpByModelYear[modelYear];
     return {
@@ -68,15 +65,26 @@ const AvgMSRPByModelYear = () => {
   });
 
   return (
-    <div>
+    <div className="container">
       <h3>Average MSRP by Model Year</h3>
-      <ul>
-        {avgMSRPByModelYear.map((data) => (
-          <li key={data.modelYear}>
-            {data.modelYear}: ${data.avgMSRP.toFixed(2)}
-          </li>
-        ))}
-      </ul>
+      <div className="table-container">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Model Year</th>
+              <th>Average MSRP</th>
+            </tr>
+          </thead>
+          <tbody>
+            {avgMSRPByModelYear.map((data) => (
+              <tr key={data.modelYear}>
+                <td className="model-year">{data.modelYear}</td>
+                <td className="avg-msrp">${data.avgMSRP.toFixed(2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
