@@ -43,3 +43,31 @@ Your submission will be evaluated based on:
   - ajayap@mapupa.ai
   - divyanshs@mapup.ai
 - Finally, please fill out the google form that you received via email to submit the assessment for review.
+
+# Final Submission Report :
+
+This analysis provides a comprehensive overview of the electric vehicle (EV) dataset, offering insights into the distribution, popularity, and pricing trends of EVs across various factors. The following visualizations and metrics are included to help better understand the landscape of electric vehicles:
+
+## General Overview: 
+
+1. Total Number of EVs: Display the total count of electric vehicles in the dataset.
+
+2. Distribution by Electric Vehicle Type: Show a breakdown of EV types (e.g., Battery Electric Vehicles (BEV), Plug-in Hybrid Electric Vehicles (PHEV)).
+
+3. Model Year Distribution: Display the number of EVs by model year using a histogram or line chart.
+
+4. Top Makes and Models: Highlight the most popular EV makes and models.
+
+## Insights :
+
+1. EV Distribution by County/City: Use a map visualization to show the geographic spread of EVs.
+
+2. Top Counties/Postal Codes with EVs: Bar chart or table showing counties or postal codes with the highest EV populations.
+
+3. Electric Range Distribution: Histogram showing the range of electric vehicles.
+
+4. Average Base MSRP by Model Year: Line chart showing how the average MSRP changes over the years.
+
+## MSRPvsRange
+
+1. Base MSRP vs Electric Range: Scatter plot to analyze the relationship between MSRP and range.
