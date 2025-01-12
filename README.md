@@ -46,6 +46,8 @@ Your submission will be evaluated based on:
 
 # Final Submission Report :
 
+## Live link : https://evanalysis.netlify.app/
+
 This analysis provides a comprehensive overview of the electric vehicle (EV) dataset, offering insights into the distribution, popularity, and pricing trends of EVs across various factors. The following visualizations and metrics are included to help better understand the landscape of electric vehicles:
 
 ## General Overview: 
