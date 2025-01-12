@@ -5,7 +5,7 @@
     grid-template-rows: repeat(3, auto);
     gap: 20px;
     padding: 20px;
-    background: linear-gradient(135deg, #e1f5fe, #ffffff);
+    background: linear-gradient(135deg, #34495e, #7b90d5f0);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     transition: background-color 0.3s ease-in-out;
